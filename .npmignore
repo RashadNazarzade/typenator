@@ -1,0 +1,68 @@
+# Source files
+src/
+*.ts
+!*.d.ts
+
+# Tests
+tests/
+test/
+*.test.ts
+*.test.js
+*.spec.ts
+*.spec.js
+**/__tests__/
+*.test-d.ts
+
+# Configuration files
+tsconfig.json
+tsconfig.*.json
+tsdown.config.ts
+.eslintrc*
+.prettierrc*
+.editorconfig
+
+# Development files
+.github/
+.vscode/
+.idea/
+scripts/
+docs/
+examples/
+
+# Git files
+.git/
+.gitignore
+.gitattributes
+
+# Package manager
+node_modules/
+bun.lock
+bun.lockb
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Build artifacts
+*.tsbuildinfo
+coverage/
+
+# Logs
+*.log
+
+# Temporary
+*.tmp
+*.temp
+.cache/
+
+# Changesets
+.changeset/
+
+# Documentation
+*.md
+!README.md
+!LICENSE.md
+!CHANGELOG.md
+
+# OS files
+.DS_Store
+Thumbs.db

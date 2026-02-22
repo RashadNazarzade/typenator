@@ -1,0 +1,83 @@
+{
+  "name": "@glitchproof/typenator/core",
+  "version": "0.1.0",
+  "description": "TypeScript utility types library. Core package",
+  "type": "module",
+  "author": {
+    "name": "GlitchProof",
+    "url": "https://github.com/RashadNazarzade"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RashadNazarzade/typenator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RashadNazarzade/typenator/issues"
+  },
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./primitives": {
+      "types": "./dist/primitives/index.d.ts",
+      "import": "./dist/primitives/index.mjs",
+      "require": "./dist/primitives/index.js"
+    },
+    "./conditionals": {
+      "types": "./dist/conditionals/index.d.ts",
+      "import": "./dist/conditionals/index.mjs",
+      "require": "./dist/conditionals/index.js"
+    },
+    "./guards": {
+      "types": "./dist/guards/index.d.ts",
+      "import": "./dist/guards/index.mjs",
+      "require": "./dist/guards/index.js"
+    },
+    "./extractors": {
+      "types": "./dist/extractors/index.d.ts",
+      "import": "./dist/extractors/index.mjs",
+      "require": "./dist/extractors/index.js"
+    },
+    "./transformers": {
+      "types": "./dist/mappers/index.d.ts",
+      "import": "./dist/mappers/index.mjs",
+      "require": "./dist/mappers/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md"
+  ],
+  "keywords": [
+    "typescript",
+    "types",
+    "utility",
+    "core"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "test": "vitest run --typecheck",
+    "test:watch": "vitest --typecheck",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "tsdown": "^0.2.16",
+    "vitest": "^2.0.0",
+    "typescript": "^5.3.3"
+  },
+  "peerDependencies": {
+    "typescript": ">=4.5.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
