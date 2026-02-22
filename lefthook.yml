@@ -1,0 +1,11 @@
+pre-commit:
+  jobs:
+    - name: format
+      run: bun run format
+    - name: test
+      run: bun run test
+
+pre-push:
+  jobs:
+    - name: build
+      run: bun run build

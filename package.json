@@ -36,11 +36,12 @@
     "@glitchproof/typenator/core": "workspace:*"
   },
   "scripts": {
+    "prepare": "lefthook install",
     "build": "bun run --filter './packages/*' build && bun run build:root",
     "build:root": "tsdown",
     "build:core": "bun run --filter @glitchproof/typenator/core build",
     "test": "bun run --filter './packages/*' test",
-    "test:watch": "vitest --typecheck",    
+    "test:watch": "vitest --typecheck",
     "format": "prettier --write 'packages/*/src/**/*.{ts,json,md}'",
     "typecheck": "bun run --filter './packages/*' typecheck",
     "clean": "bun run --filter './packages/*' clean && rm -rf dist && rm -rf node_modules",
@@ -51,10 +52,11 @@
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
+    "lefthook": "^2.1.1",
     "prettier": "^3.2.4",
     "tsdown": "^0.2.16",
-    "vitest": "^2.0.0",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "vitest": "^2.0.0"
   },
   "engines": {
     "node": ">=18.0.0",
