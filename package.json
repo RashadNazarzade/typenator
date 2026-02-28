@@ -15,37 +15,47 @@
   "bugs": {
     "url": "https://github.com/RashadNazarzade/typenator/issues"
   },
-  "workspaces": [
-    ".",
-    "packages/*"
-  ],
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./core": {
+      "import": "./dist/core/index.js",
+      "types": "./dist/core/index.d.ts"
+    },
+    "./core/primitives": {
+      "import": "./dist/core/primitives/index.js",
+      "types": "./dist/core/primitives/index.d.ts"
+    },
+    "./core/conditionals": {
+      "import": "./dist/core/conditionals/index.js",
+      "types": "./dist/core/conditionals/index.d.ts"
+    },
+    "./core/guards": {
+      "import": "./dist/core/guards/index.js",
+      "types": "./dist/core/guards/index.d.ts"
+    },
+    "./core/extractors": {
+      "import": "./dist/core/extractors/index.js",
+      "types": "./dist/core/extractors/index.d.ts"
+    },
+    "./core/mappers": {
+      "import": "./dist/core/mappers/index.js",
+      "types": "./dist/core/mappers/index.d.ts"
     }
   },
   "files": [
     "dist"
   ],
-  "dependencies": {
-    "@glitchproof/typenator/core": "workspace:*"
-  },
+  "dependencies": {},
   "scripts": {
     "prepare": "lefthook install",
-    "build": "bun run --filter './packages/*' build && bun run build:root",
-    "build:root": "tsdown",
-    "build:core": "bun run --filter @glitchproof/typenator/core build",
-    "test": "bun run --filter './packages/*' test",
-    "test:watch": "vitest --typecheck",
-    "format": "prettier --write 'packages/*/src/**/*.{ts,json,md}'",
-    "typecheck": "bun run --filter './packages/*' typecheck",
-    "clean": "bun run --filter './packages/*' clean && rm -rf dist && rm -rf node_modules",
-    "dev": "bun run --filter './packages/*' dev",
+    "build": "tsdown",
+    "test": "vitest run",
+    "format": "prettier --write 'packages/**/*.{ts,md.json,tsx}'",
+    "clean": "rm -rf dist",
     "changeset": "changeset",
     "version": "changeset version",
     "release": "bun run build && changeset publish"
@@ -54,7 +64,7 @@
     "@changesets/cli": "^2.27.1",
     "lefthook": "^2.1.1",
     "prettier": "^3.2.4",
-    "tsdown": "^0.2.16",
+    "tsdown": "^0.21.0-beta.2",
     "typescript": "^5.3.3",
     "vitest": "^2.0.0"
   },
