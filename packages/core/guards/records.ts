@@ -19,7 +19,6 @@ export type IsRecord<T> = If<
   T extends Record<string, unknown> ? true : false
 >;
 
-
 /**
  * Check if type T is a Empty Record.
  * @template T - The type to check
@@ -30,10 +29,10 @@ export type IsRecord<T> = If<
  * // false
  * type Result2 = IsEmptyRecord<{}>
  * // true
- * ```  
+ * ```
  */
 export type IsEmptyRecord<T> = If<
   IsNever<T>,
   false,
   T extends Record<string, never> ? true : false
->
+>;

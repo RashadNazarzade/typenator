@@ -76,5 +76,9 @@ export type IsUnion<T, U = T> =
  * // true
  * type Result2 = IsNullable<string>
  * // false
-*/
-export type IsNullable<T> = null extends T ? true : undefined extends T ? true : false
+ */
+export type IsNullable<T> = null extends T
+  ? true
+  : undefined extends T
+    ? true
+    : false;

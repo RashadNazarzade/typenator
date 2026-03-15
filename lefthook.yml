@@ -4,6 +4,8 @@ pre-commit:
       run: bun run format
     - name: test
       run: bun run test
+    - name: add formatting changes
+      run: git add .
 
 pre-push:
   jobs:

@@ -10,7 +10,6 @@
  */
 export type KeysOf<T> = T extends object ? keyof T : never;
 
-
 /**
  * Extract required keys of an object.
  * @template T - The type to extract the required keys from
@@ -21,9 +20,9 @@ export type KeysOf<T> = T extends object ? keyof T : never;
  * // 'name' | 'age'
  * ```
  */
-export type RequiredKeys<T> = { [K in keyof T]-?: {} extends Pick<T, K> ? never : K }[keyof T];
-
-
+export type RequiredKeys<T> = {
+  [K in keyof T]-?: {} extends Pick<T, K> ? never : K;
+}[keyof T];
 
 /**
  * Extract optional keys of an object.
@@ -35,4 +34,6 @@ export type RequiredKeys<T> = { [K in keyof T]-?: {} extends Pick<T, K> ? never 
  * // 'surname' | 'mother'
  * ```
  */
-export type OptionalKeys<T> = { [K in keyof T]-?: {} extends Pick<T, K> ? K : never }[keyof T]
+export type OptionalKeys<T> = {
+  [K in keyof T]-?: {} extends Pick<T, K> ? K : never;
+}[keyof T];

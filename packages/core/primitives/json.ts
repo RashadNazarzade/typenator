@@ -18,7 +18,6 @@ export type JsonPrimitive = null | boolean | number | string;
  */
 export type JsonObject = { [key: string]: JsonValue };
 
-
 /**
  *  Json array type.
  *  @example
@@ -28,7 +27,6 @@ export type JsonObject = { [key: string]: JsonValue };
  * ```
  */
 export type JsonArray = JsonValue[] | readonly JsonValue[];
-
 
 /**
  *  Json value type.

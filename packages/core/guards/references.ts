@@ -13,7 +13,6 @@
 
 export type IsFunction<T> = T extends (...args: any[]) => any ? true : false;
 
-
 /**
  * Check T is a promise type.
  * @template T - The type to check
@@ -26,4 +25,4 @@ export type IsFunction<T> = T extends (...args: any[]) => any ? true : false;
  * // false
  * ```
  */
-export type IsPromise<T> = T extends Promise<any> ? true : false
+export type IsPromise<T> = T extends Promise<any> ? true : false;
