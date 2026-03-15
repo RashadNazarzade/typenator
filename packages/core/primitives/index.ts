@@ -5,3 +5,9 @@ export type {
   Primitives,
   NullityPrimitive,
 } from "./primitive-types";
+export type {
+  JsonPrimitive,
+  JsonObject,
+  JsonArray,
+  JsonValue,
+} from "./json";

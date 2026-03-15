@@ -65,3 +65,16 @@ export type IsUnion<T, U = T> =
           ? false
           : true
         : false;
+
+/**
+ * Check if type T is a Nullable type.
+ * @template T - The type to check
+ * @returns True if T is a Nullable type, false otherwise
+ * @example
+ * ```ts
+ * type Result = IsNullable<null>
+ * // true
+ * type Result2 = IsNullable<string>
+ * // false
+*/
+export type IsNullable<T> = null extends T ? true : undefined extends T ? true : false

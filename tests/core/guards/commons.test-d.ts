@@ -1,6 +1,6 @@
 import { expectTypeOf, describe, test } from 'vitest'
 
-import type { IsAny, IsUnknown, IsUnion } from '@/core';
+import type { IsAny, IsUnknown, IsUnion, IsNullable } from '@/core';
 
 describe('IsAny', () => {
   test('should return true if the type is any', () => {
@@ -65,5 +65,51 @@ describe('IsAny', () => {
     expectTypeOf<IsUnknown<never>>().toEqualTypeOf<false>();
     expectTypeOf<IsUnknown<object>>().toEqualTypeOf<false>();
     expectTypeOf<IsUnknown<Function>>().toEqualTypeOf<false>();
+  });
+});
+
+describe('Guards -> IsNullable', () => {
+  test('should return true for null', () => {
+    expectTypeOf<IsNullable<null>>().toEqualTypeOf<true>();
+  });
+
+  test('should return true for undefined', () => {
+    expectTypeOf<IsNullable<undefined>>().toEqualTypeOf<true>();
+  });
+
+  test('should return true for a union with null', () => {
+    expectTypeOf<IsNullable<string | null>>().toEqualTypeOf<true>();
+  });
+
+  test('should return true for a union with undefined', () => {
+    expectTypeOf<IsNullable<string | undefined>>().toEqualTypeOf<true>();
+  });
+
+  test('should return true for a union with both null and undefined', () => {
+    expectTypeOf<IsNullable<string | null | undefined>>().toEqualTypeOf<true>();
+  });
+
+  test('should return false for string', () => {
+    expectTypeOf<IsNullable<string>>().toEqualTypeOf<false>();
+  });
+
+  test('should return false for number', () => {
+    expectTypeOf<IsNullable<number>>().toEqualTypeOf<false>();
+  });
+
+  test('should return false for boolean', () => {
+    expectTypeOf<IsNullable<boolean>>().toEqualTypeOf<false>();
+  });
+
+  test('should return false for never', () => {
+    expectTypeOf<IsNullable<never>>().toEqualTypeOf<false>();
+  });
+
+  test('should return false for a plain object', () => {
+    expectTypeOf<IsNullable<{ name: string }>>().toEqualTypeOf<false>();
+  });
+
+  test('should return false for an array', () => {
+    expectTypeOf<IsNullable<string[]>>().toEqualTypeOf<false>();
   });
 });

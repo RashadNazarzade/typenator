@@ -1,6 +1,7 @@
-export type { IsRecord } from "./records";
-export type { IsAny, IsUnknown, IsUnion } from "./commons";
+export type { IsRecord, IsEmptyRecord } from "./records";
 export type { IsArray, IsTuple, IsReadonlyArray } from "./array";
+export type { IsAny, IsUnknown, IsUnion, IsNullable } from "./commons";
+export type { IsFunction, IsPromise } from "./references";
 export type {
   IsString,
   IsNumber,

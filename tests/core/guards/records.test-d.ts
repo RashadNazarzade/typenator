@@ -1,6 +1,6 @@
 import { expectTypeOf, describe, test } from 'vitest'
 
-import type { IsRecord } from '@/core';
+import type { IsRecord, IsEmptyRecord } from '@/core';
 
 describe('Records Guards', () => {
   test('should IsRecord return true if the type is a record', () => {
@@ -37,4 +37,38 @@ describe('Records Guards', () => {
     expectTypeOf<IsRecord<Set<unknown>>>().toEqualTypeOf<false>();
     expectTypeOf<IsRecord<WeakMap<object, unknown>>>().toEqualTypeOf<false>();
   });
-}); 
+});
+
+describe('Guards -> IsEmptyRecord', () => {
+  test('should return true for an empty object', () => {
+    expectTypeOf<IsEmptyRecord<{}>>().toEqualTypeOf<true>();
+  });
+
+  test('should return false for an object with properties', () => {
+    expectTypeOf<IsEmptyRecord<{ name: string; age: number }>>().toEqualTypeOf<false>();
+  });
+
+  test('should return false for an object with a single property', () => {
+    expectTypeOf<IsEmptyRecord<{ id: number }>>().toEqualTypeOf<false>();
+  });
+
+  test('should return false for a Record with string values', () => {
+    expectTypeOf<IsEmptyRecord<Record<string, string>>>().toEqualTypeOf<false>();
+  });
+
+  test('should return false for never', () => {
+    expectTypeOf<IsEmptyRecord<never>>().toEqualTypeOf<false>();
+  });
+
+  test('should return false for string', () => {
+    expectTypeOf<IsEmptyRecord<string>>().toEqualTypeOf<false>();
+  });
+
+  test('should return false for number', () => {
+    expectTypeOf<IsEmptyRecord<number>>().toEqualTypeOf<false>();
+  });
+
+  test('should return false for an array', () => {
+    expectTypeOf<IsEmptyRecord<string[]>>().toEqualTypeOf<false>();
+  });
+});
